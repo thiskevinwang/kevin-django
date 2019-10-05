@@ -1,0 +1,28 @@
+db.sqlite3
+*.pyc
+*.swp
+# ignore visual studio
+.vscode
+# ignore pycharm
+.idea
+*.iml
+/static
+*.offset
+*.DS_Store
+*.py.bak
+
+.env
+local.env
+venv
+.venv
+.tox
+.coverage
+htmlcov
+
+celerybeat*
+
+config/settings/local_development.py
+scripts/staging_*.sql
+docker*.override.yml
+
+tags
