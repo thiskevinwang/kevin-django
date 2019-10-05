@@ -7,6 +7,18 @@ class Board(models.Model):
     name = models.CharField(max_length=30, unique=True)
     description = models.CharField(max_length=100)
 
+    # The __str__ method is a String representation of an object. 
+    # We can use the board name to represent it.
+    def __str__(self):
+        return self.name
+
+    # $ python manage.py shell
+    # >>> from boards.models import Board
+    # >>> Boards.objects.all()
+    '''
+    <QuerySet [<Board: Django>, <Board: Python>]>
+    '''
+
 class Topic(models.Model):
     subject = models.CharField(max_length=255)
     last_updated = models.DateTimeField(auto_now_add=True)
