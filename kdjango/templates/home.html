@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Boards</title>
   </head>
   <body>
     <h1>Boards</h1>
 
-    {% for board in boards %}
-      {{ board.name }} <br>
+    <!-- 
+      templateVar
+      see `../boards/views.py` -> `render()` method, 3rd arg
+    -->
+    {% for board in templateVar %}
+    {{ board.name }} <br />
     {% endfor %}
-
   </body>
 </html>
