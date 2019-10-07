@@ -1,9 +1,9 @@
-<!-- https://simpleisbetterthancomplex.com/series/2017/09/18/a-complete-beginners-guide-to-django-part-3.html#reusable-templates -->
+{% block content %}
+<div class="mb-4">
+  <a href="{% url 'new_topic' board.pk %}" class="btn btn-primary">New topic</a>
+</div>
 
-{% extends 'base.html' %} {% block title %} {{ board.name }} - {{ block.super }}
-{% endblock %} {% block breadcrumb %}
-<li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
-<li class="breadcrumb-item active">{{ board.name }}</li>
-{% endblock %} {% block content %}
-<!-- just leaving it empty for now. we will add core here soon. -->
+<table class="table">
+  <!-- code suppressed for brevity -->
+</table>
 {% endblock %}
