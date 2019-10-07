@@ -1,7 +1,7 @@
 from django.urls import reverse, resolve
 from django.test import TestCase
 
-from .views import home
+from .views import home, board_topics
 from .models import Board
 
 # add 1 test
@@ -45,4 +45,6 @@ class BoardTopicsTests(TestCase):
     
     def test_board_topics_resolves_board_topics_view(self):
         view = resolve('/boards/1/')
+        # this requires
+        # from .views, import ..., board_topics
         self.assertEquals(view.func, board_topics)
