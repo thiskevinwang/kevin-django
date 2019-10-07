@@ -1,5 +1,7 @@
-from django.urls import reverse
+from django.urls import reverse, resolve
 from django.test import TestCase
+
+from .views import home
 
 # add 1 test
 # https://simpleisbetterthancomplex.com/series/2017/09/11/a-complete-beginners-guide-to-django-part-2.html#testing-the-homepage
@@ -13,3 +15,7 @@ class HomeTests(TestCase):
         url = reverse('home')
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
+
+    def test_home_url_resolves_home_view(self):
+        view = resolve('/')
+        self.assertEquals(view.func, home)
