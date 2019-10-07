@@ -9,6 +9,8 @@ from .views import home
 '''
 cd kdjango
 python manage.py test
+# or
+python manage.py test --verbosity=2 
 '''
 class HomeTests(TestCase):
     def test_home_view_status_code(self):
