@@ -28,3 +28,9 @@ kevin-django/
 ```
 
  </details>
+
+### Install Dependencies
+
+```bash
+(ven) ~/r/kevin-django/kdjango $ pip install -r requirements.txt
+```
