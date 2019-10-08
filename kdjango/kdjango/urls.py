@@ -19,8 +19,22 @@ from django.conf.urls import url
 
 from boards import views
 
+#  Sidenote: PK or ID?
+# 
+# PK stands for Primary Key. It's a shortcut for accessing a model's primary key. 
+# All Django models have this attribute.
+# 
+# For the most cases, using the pk property is the same as id. 
+# That's because if we don't define a primary key for a model, 
+# Django will automatically create an AutoField named id, 
+# which will be its primary key.
+# 
+# If you defined a different primary key for a model, for example, 
+# let's say the field email is your primary key. 
+# To access it you could either use obj.email or obj.pk.
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
+    url(r'^boards/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
     url(r'^admin/', admin.site.urls),
 ]
