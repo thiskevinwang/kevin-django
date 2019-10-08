@@ -18,6 +18,7 @@ from django.urls import path
 from django.conf.urls import url
 
 from boards import views
+from accounts import views as accounts_views
 
 #  Sidenote: PK or ID?
 # 
@@ -33,7 +34,8 @@ from boards import views
 # let's say the field email is your primary key. 
 # To access it you could either use obj.email or obj.pk.
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
+    url(r'^$', views.home, name = 'home'),
+    url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
     url(r'^boards/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
     url(r'^admin/', admin.site.urls),
