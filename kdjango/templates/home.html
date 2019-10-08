@@ -1,8 +1,12 @@
 <!-- https://simpleisbetterthancomplex.com/series/2017/09/18/a-complete-beginners-guide-to-django-part-3.html#reusable-templates -->
 
-{% extends 'base.html' %} {% block breadcrumb %}
+{% extends 'base.html' %} 
+
+{% block breadcrumb %}
 <li class="breadcrumb-item active">Boards</li>
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{% block content %}
 <table class="table">
   <thead class="thead-inverse">
     <tr>
