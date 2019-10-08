@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import resolve, reverse
 from .views import signup
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class SignUpTests(TestCase):
     def setUp(self):
@@ -27,3 +28,37 @@ class SignUpTests(TestCase):
     def test_contains_form(self):
         form = self.response.context.get('form')
         self.assertIsInstance(form, UserCreationForm)
+
+# Part 4 - Sign Up - Testing the Sign Up View
+# https://simpleisbetterthancomplex.com/series/2017/09/25/a-complete-beginners-guide-to-django-part-4.html#testing-the-sign-up-view
+
+# Test a successful sign up
+class SuccessfulSignUpTests(TestCase):
+    def setUp(self):
+        url = reverse('signup')
+        data = {
+            'username': 'john',
+            'password1': 'abcdef123456',
+            'password2': 'abcdef123456',
+        }
+        self.response = self.client.post(url, data)
+        self.home_url = reverse('home')
+    
+    def test_redirection(self):
+        '''
+        A valid for msubmission should redirect the user to the home page
+        '''
+        self.assertRedirects(self.response, self.home_url)
+    
+    def test_user_creation(self):
+        self.assertTrue(User.objects.exists())
+    
+    def test_user_authentication(self):
+        '''
+        Create a new request to an arbitrary page.
+        The resulting response should now have a `user` to its context,
+        after a successful sign up.
+        '''
+        response = self.client.get(self.home_url)
+        user = response.context.get('user')
+        self.assertTrue(user.is_authenticated)
