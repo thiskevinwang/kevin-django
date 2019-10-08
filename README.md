@@ -8,7 +8,7 @@ Sources:
 
 - [x] Part 1 - Getting Started
 - [x] Part 2 - Fundamentals
-- [ ] Part 3 - Advanced Concepts
+- [x] Part 3 - Advanced Concepts
 - [ ] Part 4 - Authentication
 - [ ] Part 5 - Django ORM
 - [ ] Part 6 - Class-Based Views
