@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'widget_tweaks',
 
+    'accounts',
     'boards'
 ]
 
@@ -128,3 +129,19 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# Logout
+# https://simpleisbetterthancomplex.com/series/2017/09/25/a-complete-beginners-guide-to-django-part-4.html#logout
+
+# Here we are passing the name of the URL PATTERN we want to redirect 
+# the user after logging out.
+LOGOUT_REDIRECT_URL = 'home'
+
+# Login
+# https://simpleisbetterthancomplex.com/series/2017/09/25/a-complete-beginners-guide-to-django-part-4.html#login
+LOGIN_REDIRECT_URL = 'home'
+
+# Password Reset
+# Console Email Backend
+# https://simpleisbetterthancomplex.com/series/2017/09/25/a-complete-beginners-guide-to-django-part-4.html#console-email-backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
