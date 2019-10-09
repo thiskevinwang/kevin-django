@@ -136,3 +136,7 @@ STATICFILES_DIRS = [
 # Here we are passing the name of the URL PATTERN we want to redirect 
 # the user after logging out.
 LOGOUT_REDIRECT_URL = 'home'
+
+# Login
+# https://simpleisbetterthancomplex.com/series/2017/09/25/a-complete-beginners-guide-to-django-part-4.html#login
+LOGIN_REDIRECT_URL = 'home'

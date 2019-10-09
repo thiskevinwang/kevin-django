@@ -42,6 +42,10 @@ urlpatterns = [
     # It's Django's class-based view.
     # ...as opposed to function-based views, used prior to Part 4.
     url(r'^logout/$', auth_views.LogoutView.as_view(), name = 'logout'),
+
+    # Login
+    # https://simpleisbetterthancomplex.com/series/2017/09/25/a-complete-beginners-guide-to-django-part-4.html#login
+    url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login')
     
     url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
     url(r'^boards/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
